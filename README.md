@@ -82,7 +82,24 @@ More interfaces like payment and messaging are coming soon.
 * No Maintenance Times: The CloudRail Libraries are updated when a provider changes their API.
 
 ## Maven
-coming soon
+pom.xml
+```
+<repositories>
+	<repository>
+		<id>cloudrail-maven</id>
+		<name>CloudRail Maven Repo.</name>
+		<url>http://maven.cloudrail.com</url>
+	</repository>
+</repositories>
+
+<dependencies>
+	<dependency>
+		<groupId>com.cloudrail</groupId>
+		<artifactId>cloudrail-si-java</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+</dependencies>
+```
 
 ## Get Updates
 
