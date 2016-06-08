@@ -1,7 +1,7 @@
 # CloudRail - Integrate Mulitple Services With Just One API
 
 <p align="center">
-  <img src="http://cloudrail.com/wp-content/uploads/2016/05/cloudrail_SI_github.png"/>
+  <img width="500px" src="http://cloudrail.github.io/img/cloudrail_si_github.png"/>
 </p>
 
 CloudRail is a free software library which abstracts multiple APIs from different providers into a single and universal interface.
@@ -34,7 +34,41 @@ new Thread() {
 }.start();
 ````
 
-## Current Services
+## Current Interfaces
+<p align="center">
+  <img width="600px" src="http://cloudrail.github.io/img/available_interfaces.png"/>
+</p>
+
+### Cloud Storage:
+
+* Dropbox
+* Box
+* Google Drive
+* Microsoft OneDrive
+
+#### Features:
+
+* Download files from Cloud Storage.
+* Upload files to Cloud Storage.
+* Get Meta Data of files, folders and perform all standard operations (copy, move, etc) with them.
+* Retrieve user information.
+
+### Social Media Profiles:
+
+* Facebook
+* Github
+* Google Plus
+* LinkedIn
+* Slack
+* Twitter
+* Windows Live
+* Yahoo
+
+#### Features
+
+* Get profile information, including full names, emails, genders, date of birth, and locales.
+* Retrieve profile pictures.
+* Login using the Social Network.
 
 ### Payment 
 
@@ -65,38 +99,8 @@ new Thread() {
 
 * Send Email
 
-### Social Media Profiles:
 
-* Facebook
-* Github
-* Google Plus
-* LinkedIn
-* Slack
-* Twitter
-* Windows Live
-* Yahoo
-
-#### Features
-
-* Get profile information, including full names, emails, genders, date of birth, and locales.
-* Retrieve profile pictures.
-* Login using the Social Network.
-
-### Cloud Storage:
-
-* Dropbox
-* Box
-* Google Drive
-* Microsoft OneDrive
-
-#### Features:
-
-* Download files from Cloud Storage.
-* Upload files to Cloud Storage.
-* Get Meta Data of files, folders and perform all standard operations (copy, move, etc) with them.
-* Retrieve user information.
-
-More interfaces like payment and messaging are coming soon.
+More interfaces are coming soon.
 
 ## Advantages of Using CloudRail
 
