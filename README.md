@@ -36,6 +36,35 @@ new Thread() {
 
 ## Current Services
 
+### Payment 
+
+* PayPal
+* Stripe
+
+#### Features
+
+* Perform charges
+* Refund previously made charges
+* Manage subscriptions
+
+### SMS
+
+* Twilio
+* Nexmo
+
+#### Features
+
+* Send SMS
+
+### Email 
+
+* Mailjet
+* Sendgrid
+
+#### Features
+
+* Send Email
+
 ### Social Media Profiles:
 
 * Facebook
@@ -96,7 +125,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>1.0.0</version>
+		<version>2.2.0</version>
 	</dependency>
 </dependencies>
 ```
