@@ -13,30 +13,6 @@ Full documentation can be found at https://docs.cloudrail.com/
 
 With CloudRail, you can easily integrate external APIs into your application. CloudRail is an abstracted interface that takes several services and then gives a developer-friendly API that uses common functions between all providers. This means that, for example, upload() works in exactly the same way for Dropbox as it does for Google Drive, OneDrive, and other Cloud Storage Services, and getEmail() works similarly the same way across all social networks.
 
-## Code Sample
-```` java
-// CloudStorage cs = new Box(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-// CloudStorage cs = new OneDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-// CloudStorage cs = new GoogleDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-CloudStorage cs = new Dropbox(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-new Thread() {
-    @Override
-    public void run() {
-        cs.createFolder("/TestFolder"); // <---
-        InputStream stream = null;
-        try {
-            stream = getClass().getResourceAsStream("Data.csv");
-            long size = new File(getClass().getResource("Data.csv").toURI()).length();
-            cs.upload("/TestFolder/Data.csv", stream, size, false); // <---
-        } catch (Exception e) {
-            // TODO: handle error
-        } finally {
-            // TODO: close stream
-        }
-    }
-}.start();
-````
-
 ## Current Interfaces
 <p align="center">
   <img width="600px" src="http://cloudrail.github.io/img/available_interfaces.png"/>
@@ -56,6 +32,30 @@ new Thread() {
 * Get Meta Data of files, folders and perform all standard operations (copy, move, etc) with them.
 * Retrieve user information.
 
+#### Code Sample
+```` java
+// CloudStorage cs = new Box(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// CloudStorage cs = new OneDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// CloudStorage cs = new GoogleDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+CloudStorage cs = new Dropbox(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+new Thread() {
+    @Override
+    public void run() {
+        cs.createFolder("/TestFolder");
+        InputStream stream = null;
+        try {
+            stream = getClass().getResourceAsStream("Data.csv");
+            long size = new File(getClass().getResource("Data.csv").toURI()).length();
+            cs.upload("/TestFolder/Data.csv", stream, size, false);
+        } catch (Exception e) {
+            // TODO: handle error
+        } finally {
+            // TODO: close stream
+        }
+    }
+}.start();
+````
+
 ### Social Media Profiles:
 
 * Facebook
@@ -73,6 +73,24 @@ new Thread() {
 * Retrieve profile pictures.
 * Login using the Social Network.
 
+#### Code Sample
+
+```` java
+// final Profile profile = new GooglePlus(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// final Profile profile = new GitHub(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// final Profile profile = new Slack(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// ...
+final Profile profile = new Facebook(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+new Thread() {
+    @Override
+    public void run() {
+        String fullName = profile.getFullName();
+        String email = profile.getEmail();
+        // ...
+    }
+}.start();
+````
+
 ### Payment 
 
 * PayPal
@@ -84,6 +102,19 @@ new Thread() {
 * Refund previously made charges
 * Manage subscriptions
 
+#### Code Sample
+
+```` java
+final Payment payment = new PayPal(null, true, "[clientIdentifier]", "[clientSecret]");
+new Thread() {
+    @Override
+    public void run() {
+        CreditCard source = new CreditCard(null, 6L, 2021L, "xxxxxxxxxxxxxxxx", "visa", "<FirstName>", "<LastName>", null);
+        Charge charge = payment.createCharge(500L, "USD", source);
+    }
+}.start();
+````
+
 ### SMS
 
 * Twilio
@@ -93,6 +124,18 @@ new Thread() {
 
 * Send SMS
 
+#### Code Sample
+
+````java
+final SMS sms = new Twilio(null, "[clientIdentifier]", "[clientSecret]");
+new Thread() {
+    @Override
+    public void run() {
+        sms.sendSMS("CloudRail", "+4912345678", "Hello from CloudRail");
+    }
+}.start();
+````
+
 ### Email 
 
 * Mailjet
@@ -101,6 +144,18 @@ new Thread() {
 #### Features
 
 * Send Email
+
+#### Code Sample
+
+````java
+final Email email = new Sendgrid(null, "[username]", "[password]");
+new Thread() {
+    @Override
+    public void run() {
+        email.sendEmail("info@cloudrail.com", "CloudRail", Arrays.asList("foo@bar.com", "bar@foo.com"), "Welcome", "Hello from CloudRail", null, null, null);
+    }
+}.start();
+````
 
 
 More interfaces are coming soon.
