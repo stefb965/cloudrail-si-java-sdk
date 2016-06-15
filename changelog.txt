@@ -1,3 +1,7 @@
+- 2.3.0 - New interface
+
+Added the Points of Interest interface which is implemented by three services: Google Places, Foursquare and Yelp.
+
 - 2.2.0 - New interfaces
 
 Added three new interfaces: Payment, SMS and Email. For Payment we added PayPal as well as Stripe. Nexmo and Twilio implement the SMS interface. For Email we added Mailjet and Sendgrid.

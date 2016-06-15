@@ -56,6 +56,30 @@ new Thread() {
 }.start();
 ````
 
+### Points of Interest: 
+
+* Google Places
+* Foursquare
+* Yelp
+
+#### Features
+
+* Get a list of POIs nearby
+* Filter by categories or search term
+
+#### Code Example
+
+```` java
+final PointsOfInteres poi = new GooglePlaces(null, "[apiKey]");
+new Thread() {
+    @Override
+    public void run() {
+        List<POI> res = poi.getNearbyPOIs(49.4557091, 8.5279138, 1000L, "restaurant", null);
+        System.out.println("POIs: " + res.toString());    
+    }
+}.start();
+````
+
 ### Social Media Profiles:
 
 * Facebook
