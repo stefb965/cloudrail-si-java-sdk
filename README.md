@@ -1,23 +1,26 @@
 <p align="center">
   <img width="200px" src="http://cloudrail.github.io/img/cloudrail_logo_github.png"/>
 </p>
-# CloudRail - Integrate Mulitple Services With Just One API
+# CloudRail SI for Java 
+Integrate Multiple Services With Just One API
 
 <p align="center">
-  <img width="500px" src="http://cloudrail.github.io/img/cloudrail_si_github.png"/>
+  <img width="300px" src="http://cloudrail.github.io/img/cloudrail_si_github.png"/>
 </p>
 
 CloudRail is a free software library which abstracts multiple APIs from different providers into a single and universal interface.
+
+**Current Interfaces:**
+<p align="center">
+  <img width="800px" src="http://cloudrail.github.io/img/available_interfaces_v2.png"/>
+</p>
 
 Full documentation can be found at https://docs.cloudrail.com/
 
 With CloudRail, you can easily integrate external APIs into your application. CloudRail is an abstracted interface that takes several services and then gives a developer-friendly API that uses common functions between all providers. This means that, for example, upload() works in exactly the same way for Dropbox as it does for Google Drive, OneDrive, and other Cloud Storage Services, and getEmail() works similarly the same way across all social networks.
 
 ## Current Interfaces
-<p align="center">
-  <img width="600px" src="http://cloudrail.github.io/img/available_interfaces.png"/>
-</p>
-
+---
 ### Cloud Storage:
 
 * Dropbox
@@ -56,29 +59,7 @@ new Thread() {
 }.start();
 ````
 
-### Points of Interest: 
-
-* Google Places
-* Foursquare
-* Yelp
-
-#### Features
-
-* Get a list of POIs nearby
-* Filter by categories or search term
-
-#### Code Example
-
-```` java
-final PointsOfInteres poi = new GooglePlaces(null, "[apiKey]");
-new Thread() {
-    @Override
-    public void run() {
-        List<POI> res = poi.getNearbyPOIs(49.4557091, 8.5279138, 1000L, "restaurant", null);
-        System.out.println("POIs: " + res.toString());    
-    }
-}.start();
-````
+---
 
 ### Social Media Profiles:
 
@@ -115,6 +96,8 @@ new Thread() {
 }.start();
 ````
 
+---
+
 ### Payment 
 
 * PayPal
@@ -139,6 +122,8 @@ new Thread() {
 }.start();
 ````
 
+---
+
 ### SMS
 
 * Twilio
@@ -160,6 +145,8 @@ new Thread() {
 }.start();
 ````
 
+---
+
 ### Email 
 
 * Mailjet
@@ -180,6 +167,34 @@ new Thread() {
     }
 }.start();
 ````
+
+---
+
+### Points of Interest: 
+
+* Google Places
+* Foursquare
+* Yelp
+
+#### Features
+
+* Get a list of POIs nearby
+* Filter by categories or search term
+
+#### Code Example
+
+```` java
+final PointsOfInteres poi = new GooglePlaces(null, "[apiKey]");
+new Thread() {
+    @Override
+    public void run() {
+        List<POI> res = poi.getNearbyPOIs(49.4557091, 8.5279138, 1000L, "restaurant", null);
+        System.out.println("POIs: " + res.toString());    
+    }
+}.start();
+```
+
+---
 
 
 More interfaces are coming soon.
