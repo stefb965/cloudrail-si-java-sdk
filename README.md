@@ -19,9 +19,17 @@ Full documentation can be found at https://docs.cloudrail.com/
 
 With CloudRail, you can easily integrate external APIs into your application. CloudRail is an abstracted interface that takes several services and then gives a developer-friendly API that uses common functions between all providers. This means that, for example, upload() works in exactly the same way for Dropbox as it does for Google Drive, OneDrive, and other Cloud Storage Services, and getEmail() works similarly the same way across all social networks.
 
-## Current Interfaces
+## Current Interfaces:
+Interface | Included Services 
+--- | --- 
+Cloud Storage | Dropbox, Google Drive, OneDrive, Box
+Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo
+Payment | PayPal, Stripe
+Email | Maljet, Sendgrid
+SMS | Twilio, Nexmo
+Point of Interest | Google Places, Foursquare, Yelp
 ---
-### Cloud Storage:
+### Cloud Storage Interface:
 
 * Dropbox
 * Box
@@ -61,7 +69,7 @@ new Thread() {
 
 ---
 
-### Social Media Profiles:
+### Social Media Profiles Interface:
 
 * Facebook
 * Github
@@ -98,12 +106,12 @@ new Thread() {
 
 ---
 
-### Payment
+### Payment Interface:
 
 * PayPal
 * Stripe
 
-#### Features
+#### Features Interface
 
 * Perform charges
 * Refund previously made charges
@@ -122,34 +130,9 @@ new Thread() {
     }
 }.start();
 ````
-
 ---
 
-### SMS
-
-* Twilio
-* Nexmo
-
-#### Features
-
-* Send SMS
-
-#### Code Sample
-
-````java
-// final SMS sms = new Nexmo(null, "[clientIdentifier]", "[clientSecret]");
-final SMS sms = new Twilio(null, "[clientIdentifier]", "[clientSecret]");
-new Thread() {
-    @Override
-    public void run() {
-        sms.sendSMS("CloudRail", "+4912345678", "Hello from CloudRail");
-    }
-}.start();
-````
-
----
-
-### Email
+### Email Interface:
 
 * Mailjet
 * Sendgrid
@@ -173,7 +156,31 @@ new Thread() {
 
 ---
 
-### Points of Interest:
+### SMS Interface:
+
+* Twilio
+* Nexmo
+
+#### Features
+
+* Send SMS
+
+#### Code Sample
+
+````java
+// final SMS sms = new Nexmo(null, "[clientIdentifier]", "[clientSecret]");
+final SMS sms = new Twilio(null, "[clientIdentifier]", "[clientSecret]");
+new Thread() {
+    @Override
+    public void run() {
+        sms.sendSMS("CloudRail", "+4912345678", "Hello from CloudRail");
+    }
+}.start();
+````
+
+---
+
+### Points of Interest Interface:
 
 * Google Places
 * Foursquare
@@ -242,7 +249,7 @@ To keep updated with CloudRail, including any new providers that are added, just
 
 ## Pricing
 
-CloudRail is free to use. For all projects; commercial and non-commercial. We want APIs to be accessible to all developers. We want APIs to be easier to manage. This is only possible if there are free, powerful tools out there to do this.
+CloudRail is free to use. For all projects; commercial and non-commercial. We want APIs to be accessible to all developers. We want APIs to be easier to manage. This is only possible if there are free, powerful tools out there to do this. The only favor we are asking for, is to spread the word about this library. Thank you!
 
 ## Other Platforms
 
