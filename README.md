@@ -229,6 +229,8 @@ More interfaces are coming soon.
 
 * No Maintenance Times: The CloudRail Libraries are updated when a provider changes their API.
 
+* Direct Data: Everything happens directly in the Library. No data ever passes a CloudRail server.
+
 ## Maven
 pom.xml
 ```
