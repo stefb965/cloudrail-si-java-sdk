@@ -46,10 +46,10 @@ Point of Interest | Google Places, Foursquare, Yelp
 [Full Documentation](https://docs.cloudrail.com/docs/cloud-storage)
 #### Code Sample
 ```` java
-// CloudStorage cs = new Box(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-// CloudStorage cs = new OneDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-// CloudStorage cs = new GoogleDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-CloudStorage cs = new Dropbox(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// CloudStorage cs = new Box(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
+// CloudStorage cs = new OneDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
+// CloudStorage cs = new GoogleDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
+CloudStorage cs = new Dropbox(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 new Thread() {
     @Override
     public void run() {
@@ -91,11 +91,11 @@ new Thread() {
 #### Code Sample
 
 ```` java
-// final Profile profile = new GooglePlus(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-// final Profile profile = new GitHub(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
-// final Profile profile = new Slack(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+// final Profile profile = new GooglePlus(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
+// final Profile profile = new GitHub(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
+// final Profile profile = new Slack(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // ...
-final Profile profile = new Facebook(redirectReceiver, "[clientIdentifier]", "[clientSecret]");
+final Profile profile = new Facebook(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 new Thread() {
     @Override
     public void run() {
