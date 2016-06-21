@@ -1,3 +1,7 @@
+- 2.3.1 - Hotfix PayPal
+
+Fixed an issue in the PayPal constructor which made it crash when using sandbox credentials.
+
 - 2.3.0 - New interface
 
 Added the Points of Interest interface which is implemented by three services: Google Places, Foursquare and Yelp.
