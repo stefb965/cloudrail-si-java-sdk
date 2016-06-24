@@ -23,7 +23,7 @@ With CloudRail, you can easily integrate external APIs into your application. Cl
 Interface | Included Services 
 --- | --- 
 Cloud Storage | Dropbox, Google Drive, OneDrive, Box
-Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo
+Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo, Instagram
 Payment | PayPal, Stripe
 Email | Maljet, Sendgrid
 SMS | Twilio, Nexmo
@@ -80,6 +80,7 @@ new Thread() {
 * Twitter
 * Windows Live
 * Yahoo
+* Instagram
 
 #### Features
 
@@ -94,6 +95,7 @@ new Thread() {
 // final Profile profile = new GooglePlus(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // final Profile profile = new GitHub(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // final Profile profile = new Slack(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
+// final Profile profile = new Instagram(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // ...
 final Profile profile = new Facebook(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 new Thread() {
@@ -210,7 +212,7 @@ new Thread() {
         System.out.println("POIs: " + res.toString());    
     }
 }.start();
-```
+````
 
 ---
 
@@ -233,7 +235,7 @@ More interfaces are coming soon.
 
 ## Maven
 pom.xml
-```
+````
 <repositories>
 	<repository>
 		<id>cloudrail-maven</id>
@@ -246,10 +248,10 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.3.1</version>
+		<version>2.4.0</version>
 	</dependency>
 </dependencies>
-```
+````
 
 ## Get Updates
 

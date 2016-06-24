@@ -1,3 +1,11 @@
+- 2.4.0 - Instagram added, Bug fixes
+
+* Instagram was added to the Profile interface
+* Minor bug fixes in PayPal and Stripe integration, mainly concerning a better error handling and a few performance improvements
+* The profile picture URL returned from Facebook now points to the picture with a higher resolution
+* The image URL returned by the GooglePlaces API now points to the correct picture
+* All https requests use TLSv1.2 by default now. Which is the default for Java8 but not for older versions.
+
 - 2.3.1 - Hotfix PayPal
 
 Fixed an issue in the PayPal constructor which made it crash when using sandbox credentials.
