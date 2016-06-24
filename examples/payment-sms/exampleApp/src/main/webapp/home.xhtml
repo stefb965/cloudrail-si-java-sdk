@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsf/jstl/core">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewpart" content="device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Payment</title>
+
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="custom.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="jquery-2.1.3.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+ 		<div class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-brand relative">
+					<h:graphicImage value="resources/img/CloudRAIL_logo_neu.png"
+						style="height: 40px; width: 155px; padding-bottom: 7px" />
+				</div>
+
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<h:selectOneMenu value="#{stripePayment.payment.item}" class="btn btn-default dropdown-toggle" style="margin-top: 7px">
+									<f:selectItem itemLabel="Select Service" />
+							        <f:selectItem itemValue="Stripe" />
+							        <f:selectItem itemValue="Paypal" />
+							        <f:ajax render="@form" />
+						    </h:selectOneMenu>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div> 
+
+			<h:panelGroup layout="block" rendered="#{stripePayment.payment.item == 'Stripe'}">
+				<div id="wrapper">
+					<div id="sidebar-wrapper">
+						<ul class="sidebar-nav">
+						  <li role="presentation" class="active"><a href="#stripeChargesTab" data-toggle="tab"> <span class="label-h3">Charges</span></a></li>
+						    <li role="presentation"><a href="#stripeSubscriptionsTab" data-toggle="tab"><span class="label-h3">Subscriptions</span></a></li>
+						</ul>
+					</div>
+				<div id="page-content-wrapper">
+					<div class="tab-content container-fluid">
+						<h:panelGroup rendered="#{stripePayment.payment.isChargeCreated == true}" class="alert alert-success alert-dismissible" role="alert">
+							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							Charge created successfully!
+						</h:panelGroup>
+						<h:panelGroup rendered="#{stripePayment.payment.isSubscriptionCreated == true}" class="alert alert-success alert-dismissible" role="alert">
+							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							Subscription created successfully!
+						</h:panelGroup>
+							<div class="tab-pane active" id="stripeChargesTab">
+ 								<div class="panel">
+ 									<div class="row">
+ 										<span class="label-h2">Create Charge</span>
+ 									</div>
+ 									<div class="row">
+  										<div class="col-xs-6">
+											<div class="row">
+												<h:outputText class="label-h3" value="Name " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.firstName}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Credit Card " />
+												<h:selectOneMenu value="#{stripePayment.payment.cardNumber}" class="form-control" style="height:34px">
+ 											    	<f:selectItem itemValue="4242424242424242" />
+											        <f:selectItem itemValue="4012888888881881" />
+											    </h:selectOneMenu>
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Currency " />
+												<h:selectOneMenu value="#{stripePayment.payment.currency}" class="form-control" style="height:34px">
+ 											    	<f:selectItem itemValue="EUR" />
+											        <f:selectItem itemValue="USD" />
+											    </h:selectOneMenu>
+											</div>
+										</div>
+										<div class="col-xs-6">
+											<div class="row">
+												<h:outputText class="label-h3" value="Surname " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.lastName}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Amount " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.amount}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Email " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.email}" />
+											</div>
+										</div>
+ 									</div>
+ 									<div class="row">
+ 										<h:commandButton class="btn btn-primary default-top-margin" value="Submit" action="#{stripePayment.payment.createCharge()}">
+ 										</h:commandButton>
+ 									</div>
+ 								</div>
+ 									<div class="panel">
+ 										<div class="row">
+	 										<span class="label-h2">Recent Charges</span>
+	 									</div>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Amount</th>
+													<th>Currency</th>
+													<th>Credit Card No.</th>
+													<th>Refunded</th>
+													<th></th>
+												</tr>
+											</thead>
+						
+											<ui:repeat var="stripeCharge" value="#{stripePayment.payment.charges}">
+						
+												<tr>
+													<td><h:outputText value="#{stripeCharge.id}" /></td>
+													<td><h:outputText value="#{stripeCharge.amount}" /></td>
+													<td><h:outputText value="#{stripeCharge.currency}" /></td>
+													<td><h:outputText value="#{stripeCharge.source.number}" /></td>
+													<td><h:outputText value="#{stripeCharge.refunded}" /></td>
+													<td><h:commandButton class="btn btn-default" value="Refund" action="#{stripePayment.payment.refundCharge(stripeCharge.id)}"></h:commandButton></td>
+												</tr>
+						
+											</ui:repeat>
+						
+										</table>
+									</div>
+							</div>
+							<div class="tab-pane" id="stripeSubscriptionsTab">
+								<div class="panel">
+									<div class="row">
+										<span class="label-h2">
+											Create Subscription
+										</span>
+									</div>
+									<div class="row">
+  										<div class="col-xs-6">
+  											<div class="row">
+												<h:outputText class="label-h3" value="Subscription Name " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.subscriptionName}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Subscription Plan" />
+												<h:selectOneMenu value="#{stripePayment.payment.subscriptionPlanId}" class="form-control" style="height:34px">
+ 											    	<f:selectItems value="#{stripePayment.payment.subcriptionPlans}" var="plan" itemValue="#{plan.id}" itemLabel="#{plan.name}" />
+											    </h:selectOneMenu>
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="First Name " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.customerFirstName}" />
+											</div>
+										</div>
+										<div class="col-xs-6">
+										  	<div class="row">
+												<h:outputText class="label-h3" value="Subscription Description " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.subscriptionDescription}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Credit Card " />
+												<h:selectOneMenu value="#{stripePayment.payment.customerCardNumber}" class="form-control" style="height:34px">
+ 											    	<f:selectItem itemValue="4242424242424242" />
+											        <f:selectItem itemValue="4012888888881881" />
+											    </h:selectOneMenu>
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Surname " />
+												<h:inputText class="form-control" value="#{stripePayment.payment.customerLastName}" />
+											</div>
+										</div>
+ 									</div>
+ 									<div class="row">
+ 										<h:commandButton class="btn btn-primary default-top-margin" value="Create" actionListener="#{stripePayment.payment.createSubscription()}">
+ 										</h:commandButton>
+ 									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+								</div>
+					
+			</h:panelGroup>
+			<h:panelGroup layout="block" rendered="#{stripePayment.payment.item == 'Paypal'}">
+				<div id="wrapper">
+					<div id="sidebar-wrapper">
+						<ul class="sidebar-nav">
+						  <li role="presentation" class="active"><a href="#paypalChargesTab" data-toggle="tab"> <span class="label-h3">Charges</span></a></li>
+						    <li role="presentation"><a href="#paypalSubscriptionsTab" data-toggle="tab"><span class="label-h3">Subscriptions</span></a></li>
+						</ul>
+					</div>
+				<div id="page-content-wrapper">
+					<div class="tab-content container-fluid">
+						<h:panelGroup rendered="#{paypalPayment.payment.isChargeCreated == true}" class="alert alert-success alert-dismissible" role="alert">
+							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							Charge created successfully!
+						</h:panelGroup>
+						<h:panelGroup rendered="#{paypalPayment.payment.isSubscriptionCreated == true}" class="alert alert-success alert-dismissible" role="alert">
+							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							Subscription created successfully!
+						</h:panelGroup>
+							<div class="tab-pane active" id="paypalChargesTab">
+ 								<div class="panel">
+ 									<div class="row">
+ 										<span class="label-h2">Create Charge</span>
+ 									</div>
+ 									<div class="row">
+  										<div class="col-xs-6">
+											<div class="row">
+												<h:outputText class="label-h3" value="Name " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.firstName}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Credit Card " />
+												<h:selectOneMenu value="#{paypalPayment.payment.cardNumber}" class="form-control" style="height:34px">
+ 											    	<f:selectItem itemValue="4032033787054753" />
+											        <f:selectItem itemValue="4032032553030369" />
+											    </h:selectOneMenu>
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Currency " />
+												<h:selectOneMenu value="#{paypalPayment.payment.currency}" class="form-control" style="height:34px">
+											        <f:selectItem itemValue="USD" />
+											    </h:selectOneMenu>
+											</div>
+										</div>
+										<div class="col-xs-6">
+											<div class="row">
+												<h:outputText class="label-h3" value="Surname " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.lastName}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Amount " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.amount}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Email " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.email}" />
+											</div>
+										</div>
+ 									</div>
+ 									<div class="row">
+ 										<h:commandButton class="btn btn-primary default-top-margin" value="Submit" action="#{paypalPayment.payment.createCharge()}">
+ 										</h:commandButton>
+ 									</div>
+ 								</div>
+ 									<div class="panel">
+ 										<div class="row">
+	 										<span class="label-h2">Recent Charges</span>
+	 									</div>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Amount</th>
+													<th>Currency</th>
+													<th>Credit Card No.</th>
+													<th>Refunded</th>
+													<th></th>
+												</tr>
+											</thead>
+						
+											<ui:repeat var="paypalCharge" value="#{paypalPayment.payment.charges}">
+						
+												<tr>
+													<td><h:outputText value="#{paypalCharge.id}" /></td>
+													<td><h:outputText value="#{paypalCharge.amount}" /></td>
+													<td><h:outputText value="#{paypalCharge.currency}" /></td>
+													<td><h:outputText value="#{paypalCharge.source.number}" /></td>
+													<td><h:outputText value="#{paypalCharge.refunded}" /></td>
+													<td><h:commandButton class="btn btn-default" value="Refund" action="#{paypalPayment.payment.refundCharge(paypalCharge.id)}"></h:commandButton></td>
+												</tr>
+						
+											</ui:repeat>
+						
+										</table>
+									</div>
+							</div>
+							<div class="tab-pane" id="paypalSubscriptionsTab">
+								<div class="panel">
+									<div class="row">
+										<span class="label-h2">
+											Create Subscription
+										</span>
+									</div>
+									<div class="row">
+  										<div class="col-xs-6">
+  											<div class="row">
+												<h:outputText class="label-h3" value="Subscription Name " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.subscriptionName}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Subscription Plan" />
+												<h:selectOneMenu value="#{paypalPayment.payment.subscriptionPlanId}" class="form-control" style="height:34px">
+ 											    	<f:selectItems value="#{paypalPayment.payment.subcriptionPlans}" var="plan" itemValue="#{plan.id}" itemLabel="#{plan.name}" />
+											    </h:selectOneMenu>
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="First Name " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.customerFirstName}" />
+											</div>
+										</div>
+										<div class="col-xs-6">
+										  	<div class="row">
+												<h:outputText class="label-h3" value="Subscription Description " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.subscriptionDescription}" />
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Credit Card " />
+												<h:selectOneMenu value="#{paypalPayment.payment.customerCardNumber}" class="form-control" style="height:34px">
+ 											    	<f:selectItem itemValue="4032033787054753" />
+											        <f:selectItem itemValue="4032032553030369" />
+											    </h:selectOneMenu>
+											</div>
+											<div class="row">
+												<h:outputText class="label-h3" value="Surname " />
+												<h:inputText class="form-control" value="#{paypalPayment.payment.customerLastName}" />
+											</div>
+										</div>
+ 									</div>
+ 									<div class="row">
+ 										<h:commandButton class="btn btn-primary default-top-margin" value="Create" actionListener="#{paypalPayment.payment.createSubscription()}">
+ 										</h:commandButton>
+ 									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+								</div>
+			</h:panelGroup>
+	</h:form>
+
+
+
+</h:body>
+</html>
