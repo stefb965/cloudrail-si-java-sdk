@@ -1,3 +1,7 @@
+- 2.4.1 - Hotfix PayPal and Stripe
+
+Fixed issues with correctly extracting the address from the response object.
+
 - 2.4.0 - Instagram added, Bug fixes
 
 * Instagram was added to the Profile interface
