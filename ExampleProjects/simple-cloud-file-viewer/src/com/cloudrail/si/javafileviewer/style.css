@@ -1,0 +1,11 @@
+.sidebar-item {
+	-fx-background-color: transparent;
+}
+
+.sidebar-item:hover {
+	-fx-background-color: #dae7f3;
+}
+
+.selected {
+	-fx-background-color: #dae7f3;
+}
