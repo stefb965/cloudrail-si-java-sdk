@@ -1,3 +1,9 @@
+- 2.5.0 - Social interface release, CloudStorage interface extension
+
+* Added the Social interface which is implemented by two services: Facebook and Twitter
+* CloudStorage interface was extended with two new functionalities: one for sharing files and folders and one for getting information about a users available quota
+* Also extended the CloudMetaData, returned by our interface, with the date when a file was modified the last time
+
 - 2.4.1 - Hotfix PayPal and Stripe
 
 Fixed issues with correctly extracting the address from the response object.

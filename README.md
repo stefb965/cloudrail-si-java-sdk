@@ -28,6 +28,7 @@ Payment | PayPal, Stripe
 Email | Maljet, Sendgrid
 SMS | Twilio, Nexmo
 Point of Interest | Google Places, Foursquare, Yelp
+Social Interaction | Facebook, Twitter
 ---
 ### Cloud Storage Interface:
 
@@ -216,6 +217,33 @@ new Thread() {
 
 ---
 
+### Social Media Interaction Interface:
+
+* Facebook
+* Twitter
+
+#### Features
+
+* Get a list of connections.
+* Make a post for the user.
+
+[Full Documentation](https://docs.cloudrail.com/docs/social)
+#### Code Example:
+
+```` java
+// final Profile profile = new Twitter(this, "[clientID]", "[clientSecret]");
+final Profile profile = new Facebook(this, "[clientID]", "[clientSecret]");
+new Thread() {
+    @Override
+    public void run() {
+        profile.postUpdate("Hey there! I'm using CloudRail.");
+        List<String> connections = profile.getConnections();
+        // ...
+    }
+}.start();
+````
+---
+
 
 More interfaces are coming soon.
 
@@ -248,7 +276,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.4.1</version>
+		<version>2.5.0</version>
 	</dependency>
 </dependencies>
 ````
