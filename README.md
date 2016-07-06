@@ -280,6 +280,13 @@ pom.xml
 	</dependency>
 </dependencies>
 ````
+## Sample Applications
+
+If you don't know how to start or just want to have a look at how to use our SDK in a real use case, we created a few sample application which you can try out:
+
+* Sample using the CloudStorage interface: [File Viewer](https://github.com/CloudRail/cloudrail-si-java-sdk/tree/master/ExampleProjects/simple-cloud-file-viewer)
+* Sample using the Payment and the SMS interface: [Payment SMS](https://github.com/CloudRail/cloudrail-si-java-sdk/tree/master/ExampleProjects/payment-sms)
+
 
 ## Get Updates
 
