@@ -1,3 +1,7 @@
+- 2.5.1 - Hotfix: No internet connection
+
+* Fixed an issue that occurred when no internet connection was available which caused the application to shut down
+
 - 2.5.0 - Social interface release, CloudStorage interface extension
 
 * Added the Social interface which is implemented by two services: Facebook and Twitter
