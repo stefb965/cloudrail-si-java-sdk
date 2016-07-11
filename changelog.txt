@@ -1,3 +1,7 @@
+- 2.5.2 - Error handling improvements
+
+* All services should now throw a more meaningful exception
+
 - 2.5.1 - Hotfix: No internet connection
 
 * Fixed an issue that occurred when no internet connection was available which caused the application to shut down
