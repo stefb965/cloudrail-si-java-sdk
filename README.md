@@ -232,13 +232,13 @@ new Thread() {
 #### Code Example:
 
 ```` java
-// final Profile profile = new Twitter(this, "[clientID]", "[clientSecret]");
-final Profile profile = new Facebook(this, "[clientID]", "[clientSecret]");
+// final Social social = new Twitter(this, "[clientID]", "[clientSecret]", "[redirectUri]");
+final Social social = new Facebook(this, "[clientID]", "[clientSecret]", "[redirectUri]", "[state]");
 new Thread() {
     @Override
     public void run() {
-        profile.postUpdate("Hey there! I'm using CloudRail.");
-        List<String> connections = profile.getConnections();
+        social.postUpdate("Hey there! I'm using CloudRail.");
+        List<String> connections = social.getConnections();
         // ...
     }
 }.start();
