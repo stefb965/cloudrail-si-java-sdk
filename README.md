@@ -15,7 +15,7 @@ CloudRail is a free software library which abstracts multiple APIs from differen
   <img width="800px" src="http://cloudrail.github.io/img/available_interfaces_v2.png"/>
 </p>
 
-Full documentation can be found at https://docs.cloudrail.com/
+Full documentation can be found at our [wiki](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki)
 
 With CloudRail, you can easily integrate external APIs into your application. CloudRail is an abstracted interface that takes several services and then gives a developer-friendly API that uses common functions between all providers. This means that, for example, upload() works in exactly the same way for Dropbox as it does for Google Drive, OneDrive, and other Cloud Storage Services, and getEmail() works similarly the same way across all social networks.
 
@@ -45,7 +45,7 @@ Social Interaction | Facebook, Twitter
 * Retrieve user and quota information.
 * Generate share links for files and folders.
 
-[Full Documentation](https://docs.cloudrail.com/docs/cloud-storage)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-cloudstorage)
 #### Code Sample
 ```` java
 // CloudStorage cs = new Box(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
@@ -90,7 +90,7 @@ new Thread() {
 * Retrieve profile pictures.
 * Login using the Social Network.
 
-[Full Documentation](https://docs.cloudrail.com/docs/profile)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-profile)
 #### Code Sample
 
 ```` java
@@ -123,7 +123,7 @@ new Thread() {
 * Refund previously made charges
 * Manage subscriptions
 
-[Full Documentation](https://docs.cloudrail.com/docs/payment)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-payment)
 #### Code Sample
 
 ```` java
@@ -148,7 +148,7 @@ new Thread() {
 
 * Send Email
 
-[Full Documentation](https://docs.cloudrail.com/docs/email)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-email)
 #### Code Sample
 
 ````java
@@ -173,7 +173,7 @@ new Thread() {
 
 * Send SMS
 
-[Full Documentation](https://docs.cloudrail.com/docs/sms)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-sms)
 #### Code Sample
 
 ````java
@@ -200,7 +200,7 @@ new Thread() {
 * Get a list of POIs nearby
 * Filter by categories or search term
 
-[Full Documentation](https://docs.cloudrail.com/docs/points-of-interest)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-pointsofinterest)
 #### Code Example
 
 ```` java
@@ -228,7 +228,7 @@ new Thread() {
 * Get a list of connections.
 * Make a post for the user.
 
-[Full Documentation](https://docs.cloudrail.com/docs/social)
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-social)
 #### Code Example:
 
 ```` java
