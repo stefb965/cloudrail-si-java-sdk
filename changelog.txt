@@ -1,3 +1,9 @@
+- 2.5.3 - Monitoring and Bugfixes
+
+* Add the optional monitoring support to the library
+* Fix profile picture URL for Facebook
+* Error handling improvement for GoogleDrive
+
 - 2.5.2 - Error handling improvements
 
 * All services should now throw a more meaningful exception
