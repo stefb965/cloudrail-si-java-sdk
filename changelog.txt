@@ -1,3 +1,7 @@
+- 2.6.0 - New Method in CloudStorage
+
+* Added the exists method which checks if a given file/folder already exists within a users cloud storage
+
 - 2.5.3 - Monitoring and Bugfixes
 
 * Add the optional monitoring support to the library
