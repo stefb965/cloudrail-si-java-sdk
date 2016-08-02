@@ -272,14 +272,6 @@ More interfaces are coming soon.
 ## Maven
 pom.xml
 ````
-<repositories>
-	<repository>
-		<id>cloudrail-maven</id>
-		<name>CloudRail Maven Repo.</name>
-		<url>http://maven.cloudrail.com</url>
-	</repository>
-</repositories>
-
 <dependencies>
 	<dependency>
 		<groupId>com.cloudrail</groupId>
