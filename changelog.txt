@@ -1,3 +1,8 @@
+- 2.6.2 - OneDrive and SendGrid update
+
+* Our SendGrid integration now uses their latest API to send emails
+* OneDrive: getChildren now returns the complete list of children
+
 - 2.6.1 - Minor improvements
 
 * Limit the statistic data that is send in every call
