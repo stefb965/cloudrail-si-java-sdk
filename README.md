@@ -31,11 +31,11 @@ Interface | Included Services
 --- | --- 
 Cloud Storage | Dropbox, Google Drive, OneDrive, Box
 Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo, Instagram
+Social Interaction | Facebook, Twitter
 Payment | PayPal, Stripe
 Email | Maljet, Sendgrid
 SMS | Twilio, Nexmo
 Point of Interest | Google Places, Foursquare, Yelp
-Social Interaction | Facebook, Twitter
 ---
 ### Cloud Storage Interface:
 
@@ -117,6 +117,33 @@ new Thread() {
 }.start();
 ````
 
+---
+
+### Social Media Interaction Interface:
+
+* Facebook
+* Twitter
+
+#### Features
+
+* Get a list of connections.
+* Make a post for the user.
+
+[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-social)
+#### Code Example:
+
+```` java
+// final Social social = new Twitter(this, "[clientID]", "[clientSecret]", "[redirectUri]");
+final Social social = new Facebook(this, "[clientID]", "[clientSecret]", "[redirectUri]", "[state]");
+new Thread() {
+    @Override
+    public void run() {
+        social.postUpdate("Hey there! I'm using CloudRail.");
+        List<String> connections = social.getConnections();
+        // ...
+    }
+}.start();
+````
 ---
 
 ### Payment Interface:
@@ -224,34 +251,6 @@ new Thread() {
 ````
 
 ---
-
-### Social Media Interaction Interface:
-
-* Facebook
-* Twitter
-
-#### Features
-
-* Get a list of connections.
-* Make a post for the user.
-
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-social)
-#### Code Example:
-
-```` java
-// final Social social = new Twitter(this, "[clientID]", "[clientSecret]", "[redirectUri]");
-final Social social = new Facebook(this, "[clientID]", "[clientSecret]", "[redirectUri]", "[state]");
-new Thread() {
-    @Override
-    public void run() {
-        social.postUpdate("Hey there! I'm using CloudRail.");
-        List<String> connections = social.getConnections();
-        // ...
-    }
-}.start();
-````
----
-
 
 More interfaces are coming soon.
 
