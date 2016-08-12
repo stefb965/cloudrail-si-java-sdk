@@ -1,3 +1,9 @@
+- 2.6.3 - Minor improvements
+
+* Correctly return the last modified date for Box
+* Implement a RedirectReceiver that can be used to test the library locally
+* Provide an implementation for a RedirectReceiver for JavaFX which opens a new window containing a WebView which displays the website where the user needs to login
+
 - 2.6.2 - OneDrive and SendGrid update
 
 * Our SendGrid integration now uses their latest API to send emails
@@ -12,7 +18,7 @@
 
 * Added the exists method which checks if a given file/folder already exists within a users cloud storage
 
-- 2.5.3 - Monitoring and Bugfixes
+- 2.5.3 - Monitoring and Bug fixes
 
 * Add the optional monitoring support to the library
 * Fix profile picture URL for Facebook
