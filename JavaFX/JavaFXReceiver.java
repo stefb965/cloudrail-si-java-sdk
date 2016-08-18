@@ -1,5 +1,3 @@
-package com.cloudrail.si.javafileviewer.model;
-
 import java.util.concurrent.atomic.AtomicReference;
 
 import com.cloudrail.si.servicecode.commands.awaitCodeRedirect.RedirectReceiver;
