@@ -275,7 +275,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.6.3</version>
+		<version>2.6.4</version>
 	</dependency>
 </dependencies>
 ````

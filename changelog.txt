@@ -1,3 +1,8 @@
+- 2.6.4 - Size optimization
+
+* Reduce the size of the SDK from ~720kb to ~480kb 
+* Bug fix in Dropbox’s exists() method which was returning a result even if the call failed
+
 - 2.6.3 - Minor improvements
 
 * Correctly return the last modified date for Box
