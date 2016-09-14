@@ -8,7 +8,7 @@ Integrate Multiple Services With Just One API
   <img width="300px" src="http://cloudrail.github.io/img/cloudrail_si_github.png"/>
 </p>
 
-CloudRail is a free software library which abstracts multiple APIs from different providers into a single and universal interface.
+CloudRail is an API integration solution which abstracts multiple APIs from different providers into a single and universal interface.
 
 **Current Interfaces:**
 <p align="center">
@@ -24,7 +24,9 @@ Learn more about CloudRail on https://cloudrail.com
 ---
 ---
 
-With CloudRail, you can easily integrate external APIs into your application. CloudRail is an abstracted interface that takes several services and then gives a developer-friendly API that uses common functions between all providers. This means that, for example, upload() works in exactly the same way for Dropbox as it does for Google Drive, OneDrive, and other Cloud Storage Services, and getEmail() works similarly the same way across all social networks.
+With CloudRail, you can easily integrate external APIs into your application. 
+CloudRail is an abstracted interface that takes several services and then gives a developer-friendly API that uses common functions between all providers. 
+This means that, for example, upload() works in exactly the same way for Dropbox as it does for Google Drive, OneDrive, and other Cloud Storage Services, and getEmail() works similarly the same way across all social networks.
 
 ## Current Interfaces:
 Interface | Included Services 
@@ -55,6 +57,9 @@ Point of Interest | Google Places, Foursquare, Yelp
 [Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-cloudstorage)
 #### Code Sample
 ```` java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // CloudStorage cs = new Box(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // CloudStorage cs = new OneDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // CloudStorage cs = new GoogleDrive(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
@@ -101,6 +106,9 @@ new Thread() {
 #### Code Sample
 
 ```` java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // final Profile profile = new GooglePlus(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // final Profile profile = new GitHub(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
 // final Profile profile = new Slack(redirectReceiver, "[clientIdentifier]", "[clientSecret]", "[redirectUri]", "[state]");
@@ -133,6 +141,9 @@ new Thread() {
 #### Code Example:
 
 ```` java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // final Social social = new Twitter(this, "[clientID]", "[clientSecret]", "[redirectUri]");
 final Social social = new Facebook(this, "[clientID]", "[clientSecret]", "[redirectUri]", "[state]");
 new Thread() {
@@ -161,6 +172,9 @@ new Thread() {
 #### Code Sample
 
 ```` java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // final Payment payment = new Stripe(null, "[secretKey]");
 final Payment payment = new PayPal(null, true, "[clientIdentifier]", "[clientSecret]");
 new Thread() {
@@ -186,6 +200,9 @@ new Thread() {
 #### Code Sample
 
 ````java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // final Email email = new Mailjet(null, "[clientID]", "[clientSecret]");
 final Email email = new Sendgrid(null, "[username]", "[password]");
 new Thread() {
@@ -211,6 +228,9 @@ new Thread() {
 #### Code Sample
 
 ````java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // final SMS sms = new Nexmo(null, "[clientIdentifier]", "[clientSecret]");
 final SMS sms = new Twilio(null, "[clientIdentifier]", "[clientSecret]");
 new Thread() {
@@ -238,6 +258,9 @@ new Thread() {
 #### Code Example
 
 ```` java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
 // final PointsOfInteres poi = new Foursquare(null, "[clientID]", "[clientSecret]");
 // final PointsOfInteres poi = new Yelp(null, "[consumerKey]", "[consumerSecret]", "[token]", "[tokenSecret]");
 final PointsOfInteres poi = new GooglePlaces(null, "[apiKey]");
@@ -262,7 +285,7 @@ More interfaces are coming soon.
 
 * Switch services instantly: One line of code is needed to set up the service you are using. Changing which service is as simple as changing the name to the one you wish to use.
 
-* Simple Documentation: There is no searching around Stack Overflow for the answer. The CloudRail documentation at https://docs.cloudrail.com/ is regularly updated, clean, and simple to use.
+* Simple Documentation: There is no searching around Stack Overflow for the answer. The CloudRail documentation at https://github.com/CloudRail/cloudrail-si-android-sdk/wiki is regularly updated, clean, and simple to use.
 
 * No Maintenance Times: The CloudRail Libraries are updated when a provider changes their API.
 
@@ -275,7 +298,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.6.4</version>
+		<version>2.7.0</version>
 	</dependency>
 </dependencies>
 ````
@@ -287,9 +310,13 @@ If you don't know how to start or just want to have a look at how to use our SDK
 * Sample using the Payment and the SMS interface: [Payment SMS](https://github.com/CloudRail/cloudrail-si-java-sdk/tree/master/ExampleProjects/payment-sms)
 
 
-## Get Updates
+## License Key
 
-To keep updated with CloudRail, including any new providers that are added, just add your email address to https://cloudrail.com/updates/.
+CloudRail provides a developer portal which offers usage insights for the SDKs and allows you to generate license keys.
+
+It's free to sign up and generate a key.
+
+Head over to https://developers.cloudrail.com
 
 ## Pricing
 

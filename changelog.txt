@@ -1,3 +1,8 @@
+- 2.7.0 - New developer portal
+
+* Add license key support for new developer portal. Signup for a free license key at developers.cloudrail.com and benefit from app statistics and API change management
+* Fix Box logout issue which occurred whenever logout is called before a successful login was performed
+
 - 2.6.4 - Size optimization
 
 * Reduce the size of the SDK from ~720kb to ~480kb 
