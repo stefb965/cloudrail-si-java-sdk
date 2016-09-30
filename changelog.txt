@@ -1,3 +1,8 @@
+- 2.7.2 - 
+
+* The services in the CloudStorage interface now have an additional method to get thumbnails
+* The CloudMetaData objects now have additional dimension information for images
+
 - 2.7.1 - Bugfix
 
 * If an exception is thrown while sending statistics, this exception is ignored and does not impact the application
