@@ -45,6 +45,7 @@ Point of Interest | Google Places, Foursquare, Yelp
 * Box
 * Google Drive
 * Microsoft OneDrive
+* Egnyte
 
 #### Features:
 
