@@ -1,3 +1,9 @@
+- 2.8.1 - 
+
+* Does not crash anymore if main class name could not be found for sending statistics
+* Update the Facebook integration to the latest API version 2.8
+* Improve the error handling in the exists method of several cloud storage integrations, namely Dropbox, GoogleDrive and OneDrive
+
 - 2.8.0 -
 
 * Added Egnyte as a new service, implementing the CloudStorage interface. It does not support retrieval of user login, user name, available and used space or thumbnails since the API exposes no such information yet.
