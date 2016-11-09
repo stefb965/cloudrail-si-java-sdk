@@ -1,3 +1,11 @@
+- 2.9.0 - 
+
+* Introduced new interface called Business Cloud Storage
+* Amazon S3 has been added as a new service implementing Business Cloud Storage
+* Microsoft Azure has been added as a new service implementing Business Cloud Storage
+* Backblaze has been added as a new service implementing Business Cloud Storage
+* Rackspace has been added as a new service implementing Business Cloud Storage
+
 - 2.8.1 - 
 
 * Does not crash anymore if main class name could not be found for sending statistics

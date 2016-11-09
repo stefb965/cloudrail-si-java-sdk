@@ -17,7 +17,7 @@ CloudRail is an API integration solution which abstracts multiple APIs from diff
 ---
 ---
 
-Full documentation can be found at our [wiki](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki)
+Full documentation can be found at our [wiki](https://documentation.cloudrail.com/java/java/Home)
 
 Learn more about CloudRail on https://cloudrail.com
 
@@ -32,6 +32,7 @@ This means that, for example, upload() works in exactly the same way for Dropbox
 Interface | Included Services 
 --- | --- 
 Cloud Storage | Dropbox, Google Drive, OneDrive, Box, Egnyte
+Business Cloud Storage | AmazonS3, Microsoft Azure, Rackspace, Backblaze
 Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo, Instagram
 Social Interaction | Facebook, Twitter
 Payment | PayPal, Stripe
@@ -55,7 +56,7 @@ Point of Interest | Google Places, Foursquare, Yelp
 * Retrieve user and quota information.
 * Generate share links for files and folders.
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-cloudstorage)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-cloudstorage)
 #### Code Sample
 ```` java
 CloudRail.setAppKey("[CloudRail License Key]");
@@ -85,6 +86,52 @@ new Thread() {
 
 ---
 
+### Business Cloud Storage Interface:
+
+* Amazon S3
+* Microsoft Azure
+* Rackspace
+* Backblaze
+
+#### Features:
+
+* Create, delete and list buckets
+* Upload files
+* Download files
+* List files in a bucket and delete files
+* Get file metadata (last modified, size, etc.)
+
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-cloudstorage)
+#### Code Sample
+```` java
+CloudRail.setAppKey("[CloudRail License Key]");
+
+
+// BusinessCloudStorage cs = new MicrosoftAzure(null, "[accountName]", "[accessKey]");
+// BusinessCloudStorage cs = new Rackspace(null, "[username]", "[apiKey]", "[region]");
+// BusinessCloudStorage cs = new Backblaze(null, "[accountId]", "[appKey]");
+BusinessCloudStorage cs = new AmazonS3(null, "[accessKeyId]", "[secretAccessKey]", "[region]");
+
+new Thread() {
+    @Override
+    public void run() {
+        Bucket bucket cs.createBucket(„/TestFolder");
+        InputStream stream = null;
+        try {
+            stream = getClass().getResourceAsStream("Data.csv");
+            long size = new File(getClass().getResource("Data.csv").toURI()).length();
+            cs.uploadFile(bucket, „/TestFolder/Data.csv", stream, size, false);
+        } catch (Exception e) {
+            // TODO: handle error
+        } finally {
+            // TODO: close stream
+        }
+    }
+}.start();
+````
+
+---
+
 ### Social Media Profiles Interface:
 
 * Facebook
@@ -103,7 +150,7 @@ new Thread() {
 * Retrieve profile pictures.
 * Login using the Social Network.
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-profile)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-profile)
 #### Code Sample
 
 ```` java
@@ -138,7 +185,7 @@ new Thread() {
 * Get a list of connections.
 * Make a post for the user.
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-social)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-social)
 #### Code Example:
 
 ```` java
@@ -169,7 +216,7 @@ new Thread() {
 * Refund previously made charges
 * Manage subscriptions
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-payment)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-payment)
 #### Code Sample
 
 ```` java
@@ -197,7 +244,7 @@ new Thread() {
 
 * Send Email
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-email)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-email)
 #### Code Sample
 
 ````java
@@ -225,7 +272,7 @@ new Thread() {
 
 * Send SMS
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-sms)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-sms)
 #### Code Sample
 
 ````java
@@ -255,7 +302,7 @@ new Thread() {
 * Get a list of POIs nearby
 * Filter by categories or search term
 
-[Full Documentation](https://github.com/CloudRail/cloudrail-si-java-sdk/wiki/Usage#interfaces-pointsofinterest)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-pointsofinterest)
 #### Code Example
 
 ```` java
@@ -286,7 +333,7 @@ More interfaces are coming soon.
 
 * Switch services instantly: One line of code is needed to set up the service you are using. Changing which service is as simple as changing the name to the one you wish to use.
 
-* Simple Documentation: There is no searching around Stack Overflow for the answer. The CloudRail documentation at https://github.com/CloudRail/cloudrail-si-android-sdk/wiki is regularly updated, clean, and simple to use.
+* Simple Documentation: There is no searching around Stack Overflow for the answer. The CloudRail documentation at https://documentation.cloudrail.com/java/java/Home is regularly updated, clean, and simple to use.
 
 * No Maintenance Times: The CloudRail Libraries are updated when a provider changes their API.
 
@@ -299,7 +346,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.8.1</version>
+		<version>2.9.0</version>
 	</dependency>
 </dependencies>
 ````
