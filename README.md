@@ -101,7 +101,7 @@ new Thread() {
 * List files in a bucket and delete files
 * Get file metadata (last modified, size, etc.)
 
-[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-cloudstorage)
+[Full Documentation](https://documentation.cloudrail.com/java/java/Usage#interfaces-businesscloudstorage)
 #### Code Sample
 ```` java
 CloudRail.setAppKey("[CloudRail License Key]");
