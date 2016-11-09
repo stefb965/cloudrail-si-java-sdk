@@ -115,12 +115,12 @@ BusinessCloudStorage cs = new AmazonS3(null, "[accessKeyId]", "[secretAccessKey]
 new Thread() {
     @Override
     public void run() {
-        Bucket bucket cs.createBucket(„/TestFolder");
+        Bucket bucket cs.createBucket("testbucket");
         InputStream stream = null;
         try {
             stream = getClass().getResourceAsStream("Data.csv");
             long size = new File(getClass().getResource("Data.csv").toURI()).length();
-            cs.uploadFile(bucket, „/TestFolder/Data.csv", stream, size, false);
+            cs.uploadFile(bucket, "Data.csv", stream, size, false);
         } catch (Exception e) {
             // TODO: handle error
         } finally {
