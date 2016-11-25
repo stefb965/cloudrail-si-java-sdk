@@ -1,3 +1,12 @@
+- 2.10.0 - 
+
+* Added OneDrive for Business as a new service to the Cloud Storage interface
+* Bugfixes to OneDrive and Dropbox concerning files and folders with special characters
+* Fixed an issue where Box and GoogleDrive would return maximally 100 children of a folder
+* Added a function to retrieve children in chunks to all Cloud Storage services
+* Updated Google Drive from API version 2 to 3
+* Heroku has been added as a new service implementing Profile. It supports the retrieval of a unique ID, the full name and the email address. It is still in Beta and not officially listed or documented
+
 - 2.9.1 -
 
 * Fixing an issue in the statistics sending which was causing exceptions

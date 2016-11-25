@@ -31,9 +31,9 @@ This means that, for example, upload() works in exactly the same way for Dropbox
 ## Current Interfaces:
 Interface | Included Services 
 --- | --- 
-Cloud Storage | Dropbox, Google Drive, OneDrive, Box, Egnyte
+Cloud Storage | Dropbox, Google Drive, OneDrive, Box, Egnyte, OneDrive Business
 Business Cloud Storage | AmazonS3, Microsoft Azure, Rackspace, Backblaze
-Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo, Instagram
+Social Profiles | Facebook, GitHub, Google+, LinkedIn, Slack, Twitter, Windows Live, Yahoo, Instagram, Heroku
 Social Interaction | Facebook, Twitter
 Payment | PayPal, Stripe
 Email | Maljet, Sendgrid
@@ -47,6 +47,7 @@ Point of Interest | Google Places, Foursquare, Yelp
 * Google Drive
 * Microsoft OneDrive
 * Egnyte
+* OneDrive Business
 
 #### Features:
 
@@ -143,6 +144,7 @@ new Thread() {
 * Windows Live
 * Yahoo
 * Instagram
+* Herouku
 
 #### Features
 
@@ -346,7 +348,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.9.1</version>
+		<version>2.10.0</version>
 	</dependency>
 </dependencies>
 ````
