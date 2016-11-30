@@ -1,3 +1,10 @@
+- 2.10.1 -
+
+* Fix for modified date returned by Box
+* Fix for shared links in Dropbox
+* Fix for special characters within the path
+* Add Proxy support for HTTP requests by using setProxy(Proxy) or setHttpProxy(Proxy) and setHttpsProxy(Proxy)
+
 - 2.10.0 - 
 
 * Added OneDrive for Business as a new service to the Cloud Storage interface

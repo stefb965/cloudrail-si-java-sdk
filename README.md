@@ -348,7 +348,7 @@ pom.xml
 	<dependency>
 		<groupId>com.cloudrail</groupId>
 		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.10.0</version>
+		<version>2.10.1</version>
 	</dependency>
 </dependencies>
 ````
