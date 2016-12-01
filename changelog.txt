@@ -1,8 +1,8 @@
 - 2.10.1 -
 
-* Fix for modified date returned by Box
-* Fix for shared links in Dropbox
-* Fix for special characters within the path
+* Fixed an issue where Box would return incorrect lastModified timestamps
+* Fixed an issue with file/folder names containing single quotes on Google Drive
+* Dropbox now returns an already created share link 
 * Add Proxy support for HTTP requests by using setProxy(Proxy) or setHttpProxy(Proxy) and setHttpsProxy(Proxy)
 
 - 2.10.0 - 
