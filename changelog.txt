@@ -1,3 +1,7 @@
+- 2.11.0 -
+
+* Google Cloud Services added as a new integration in the Business Cloud Storage interface
+
 - 2.10.1 -
 
 * Fixed an issue where Box would return incorrect lastModified timestamps
