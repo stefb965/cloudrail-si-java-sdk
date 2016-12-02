@@ -344,7 +344,7 @@ More interfaces are coming soon.
 * Direct Data: Everything happens directly in the Library. No data ever passes a CloudRail server.
 
 ## Maven
-http://search.maven.org/#search|ga|1|a:"cloudrail-si-java"
+You can find the dependency for the latest version on [Maven Central](http://search.maven.org/#search|ga|1|a:"cloudrail-si-java")
 
 ## Sample Applications
 
