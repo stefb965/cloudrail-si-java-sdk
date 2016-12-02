@@ -344,16 +344,8 @@ More interfaces are coming soon.
 * Direct Data: Everything happens directly in the Library. No data ever passes a CloudRail server.
 
 ## Maven
-pom.xml
-````
-<dependencies>
-	<dependency>
-		<groupId>com.cloudrail</groupId>
-		<artifactId>cloudrail-si-java</artifactId>
-		<version>2.11.0</version>
-	</dependency>
-</dependencies>
-````
+http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22cloudrail-si-java%22
+
 ## Sample Applications
 
 If you don't know how to start or just want to have a look at how to use our SDK in a real use case, we created a few sample application which you can try out:
