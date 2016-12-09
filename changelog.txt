@@ -1,3 +1,9 @@
+- 2.12.0 -
+
+* Add postImage and postVideo methods to the Social Interaction interface
+* Add FacebookPage as a new integration which implements the Social Interaction interface
+* Fix an issue with parsing of certain Date formats
+
 - 2.11.0 -
 
 * Google Cloud Services added as a new integration in the Business Cloud Storage interface
