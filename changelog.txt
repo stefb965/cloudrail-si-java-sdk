@@ -1,3 +1,7 @@
+- 2.15.0 -
+
+* Advanced request functionality for all services
+
 - 2.14.0 -
 
 * Advanced Request now available for the services implementing the Profile interface
