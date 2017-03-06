@@ -1,3 +1,7 @@
+- 2.16.0 -
+
+* Enable developers to specify the scopes they want to acquire for the different services using OAuth
+
 - 2.15.0 -
 
 * Advanced request functionality for all services
